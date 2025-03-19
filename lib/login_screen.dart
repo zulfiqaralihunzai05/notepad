@@ -11,11 +11,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
 
   bool _isPasswordVisible = false;
 
@@ -23,12 +21,15 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       await _auth.signInWithEmailAndPassword(
           email: emailController.text, password: passController.text);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
-
-    }catch (error) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomeScreen(),
+        ),
+      );
+    } catch (error) {
       print('Login Failed $error');
     }
-
   }
 
   @override
@@ -121,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               border: InputBorder.none,
                               contentPadding:
-                              EdgeInsets.symmetric(vertical: 15),
+                                  EdgeInsets.symmetric(vertical: 15),
                             ),
                             style: TextStyle(color: Colors.white),
                             keyboardType: TextInputType.emailAddress,
@@ -160,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               border: InputBorder.none,
                               contentPadding:
-                              EdgeInsets.symmetric(vertical: 15),
+                                  EdgeInsets.symmetric(vertical: 15),
                             ),
                             style: TextStyle(color: Colors.white),
                           ),
@@ -186,7 +187,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              SignIn();
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
                               foregroundColor: Color(0xFF6A11CB),
