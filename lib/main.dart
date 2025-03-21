@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:notepad_app/screen_one.dart';
+import 'package:notepad_app/screen_two.dart';
 import 'package:notepad_app/splash_screen.dart';
 
 import 'firebase_options.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const ScreenOne(),
     );
   }
 }
