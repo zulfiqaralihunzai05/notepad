@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notepad_app/screen_two.dart';
+import 'package:notepad_app/dashboard/screen/screen_two.dart';
 
 class ScreenOne extends StatefulWidget {
   const ScreenOne({super.key});
@@ -9,7 +9,9 @@ class ScreenOne extends StatefulWidget {
 }
 
 class _ScreenOneState extends State<ScreenOne> {
-  TextEditingController testname = TextEditingController();
+
+  TextEditingController testname = TextEditingController();// object
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

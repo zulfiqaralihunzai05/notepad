@@ -1,7 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:notepad_app/home_screen.dart';
-import 'package:notepad_app/signup_screen.dart';
+import 'package:notepad_app/dashboard/screen/home_screen.dart';
+import 'package:notepad_app/auth/screen/signup_screen.dart';
+
+import '../../widgets_general/button.dart';
+import '../widget/button_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -184,32 +187,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(height: 30),
 
                         // Login Button
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              SignIn();
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              foregroundColor: Color(0xFF6A11CB),
-                              padding: EdgeInsets.symmetric(vertical: 16),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              elevation: 8,
-                              shadowColor: Colors.black.withOpacity(0.4),
-                            ),
-                            child: Text(
-                              'Login',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1.5,
-                              ),
-                            ),
-                          ),
-                        ),
+                        ButtonWidget(),
+
                         const SizedBox(height: 50),
 
                         // Social Login

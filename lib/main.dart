@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:notepad_app/screen_one.dart';
-import 'package:notepad_app/screen_two.dart';
-import 'package:notepad_app/splash_screen.dart';
+import 'package:notepad_app/dashboard/screen/screen_one.dart';
+import 'package:notepad_app/dashboard/screen/screen_two.dart';
+import 'package:notepad_app/onboarding/screen/splash_screen.dart';
 
 import 'firebase_options.dart';
-import 'login_screen.dart';
+import 'auth/screen/login_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

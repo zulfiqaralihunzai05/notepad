@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:notepad_app/login_screen.dart';
+import 'package:notepad_app/auth/screen/login_screen.dart';
+import 'package:notepad_app/controllers/auth/signup_controller.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -11,42 +12,13 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  final TextEditingController userController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passController = TextEditingController();
-  final TextEditingController cPassController = TextEditingController();
-  
-  
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  final SignupController signupController = SignupController();  //Call Signup Controller or object creatting
 
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
 
-  void SignUp() async{
-    try {
-      UserCredential data = await
-      _auth.createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passController.text);
-      
-      await _firestore.collection('Students').doc(data.user!.uid).set({
-        'name': nameController.text,
-        'username':userController.text,
-        'email': emailController.text,
-        'password': passController.text,
-        'uid':data.user!.uid,
-      });
 
-      Navigator.pop(context);
-
-
-    }catch (error) {
-      print("Registration failed: $error");
-    }
-  }
 
 
 
@@ -130,7 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextFormField(
-                            controller: userController,
+                            controller: signupController.userController,
                             decoration: InputDecoration(
                               hintText: 'Username',
                               hintStyle: TextStyle(color: Colors.white70),
@@ -154,7 +126,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextFormField(
-                            controller: nameController,
+                            controller: signupController.nameController,
                             decoration: InputDecoration(
                               hintText: 'Full Name',
                               hintStyle: TextStyle(color: Colors.white70),
@@ -178,7 +150,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextFormField(
-                            controller: emailController,
+                            controller: signupController.emailController,
                             decoration: InputDecoration(
                               hintText: 'Email',
                               hintStyle: TextStyle(color: Colors.white70),
@@ -203,7 +175,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextFormField(
-                            controller: passController,
+                            controller: signupController.passController,
                             obscureText: !_isPasswordVisible,
                             decoration: InputDecoration(
                               hintText: 'Password',
@@ -241,7 +213,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: TextFormField(
-                            controller: cPassController,
+                            controller: signupController.cPassController,
                             obscureText: !_isConfirmPasswordVisible,
                             decoration: InputDecoration(
                               hintText: 'Confirm Password',
@@ -272,13 +244,11 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ),
                         const SizedBox(height: 10),
-
-
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              SignUp();
+                              signupController.SignUp();
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
