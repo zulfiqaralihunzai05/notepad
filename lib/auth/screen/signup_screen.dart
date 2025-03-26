@@ -248,7 +248,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              signupController.SignUp();
+                              signupController.SignUp(context);
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
