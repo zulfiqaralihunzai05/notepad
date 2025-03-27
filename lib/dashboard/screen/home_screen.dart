@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => DetailedScreen(
-                          data: user[index],
+                          data: user,
                         ),
                       ));
                 },
