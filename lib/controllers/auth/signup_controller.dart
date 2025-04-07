@@ -6,7 +6,6 @@ import 'package:notepad_app/dashboard/screen/home_screen.dart';
 
 class SignupController extends GetxController {
 
-
   final TextEditingController userController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();

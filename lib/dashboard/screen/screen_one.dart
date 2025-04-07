@@ -1,54 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:notepad_app/dashboard/screen/screen_two.dart';
 
-class ScreenOne extends StatefulWidget {
-  const ScreenOne({super.key});
-
-  @override
-  State<ScreenOne> createState() => _ScreenOneState();
-}
-
-class _ScreenOneState extends State<ScreenOne> {
-
-  TextEditingController testname = TextEditingController();// object
+class GridViewExample extends StatelessWidget {
+  final List<String> items = List.generate(20, (index) => "Item ${index + 1}");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink,
-      appBar: AppBar(title: Text('Screen One'),),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(13.0),
-            child: TextField(
-              controller: testname,
-              decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  filled: true,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: BorderSide(color: Colors.white))),
+        appBar: AppBar(
+          title: Text('Simple GridView Example'),
+        ),
+        body: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: 1
             ),
-          ),
-          SizedBox(height: 15),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ScreenTwo(name: testname.text.toString() ,),
-                    ));
-              },
-              child: Text(
-                'Pass Data',
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              ))
-        ],
-      ),
-    );
+            itemCount: 20,
+            itemBuilder: (context, index) {
+              return Container(
+                decoration: BoxDecoration(color: Colors.red),
+              );
+            })
+
+        // GridView.builder(
+        //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //     crossAxisCount: 2, // Number of items per row
+        //     crossAxisSpacing: 10, // Space between columns
+        //     mainAxisSpacing: 10, // Space between rows
+        //   ),
+        //   itemCount: items.length,
+        //   itemBuilder: (context, index) {
+        //     return Card(
+        //       color: Colors.blueAccent,
+        //       child: Center(
+        //         child: Text(
+        //           items[index],
+        //           style: TextStyle(color: Colors.white, fontSize: 18),
+        //         ),
+        //       ),
+        //     );
+        //   },
+        // ),
+        );
   }
 }

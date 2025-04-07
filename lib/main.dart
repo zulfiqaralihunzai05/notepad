@@ -4,6 +4,7 @@ import 'package:notepad_app/dashboard/screen/screen_one.dart';
 import 'package:notepad_app/dashboard/screen/screen_two.dart';
 import 'package:notepad_app/onboarding/screen/splash_screen.dart';
 
+import 'dashboard/screen/home_screen.dart';
 import 'firebase_options.dart';
 import 'auth/screen/login_screen.dart';
 
@@ -22,14 +23,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter ',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }
