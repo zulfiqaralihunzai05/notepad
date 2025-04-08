@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:notepad_app/dashboard/screen/home_screen.dart';
-import 'package:notepad_app/auth/screen/signup_screen.dart';
+import 'package:notepad_app/auth/screen/view/signup_screen.dart';
 
-import '../../widgets_general/button.dart';
-import '../widget/button_widget.dart';
+import '../../../widgets_general/button.dart';
+import '../../widget/button_widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

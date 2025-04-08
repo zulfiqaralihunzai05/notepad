@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:notepad_app/auth/screen/login_screen.dart';
+import 'package:notepad_app/auth/screen/view/login_screen.dart';
 import 'package:notepad_app/controllers/auth/signup_controller.dart';
 
 class SignupScreen extends StatefulWidget {
