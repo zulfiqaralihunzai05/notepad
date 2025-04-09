@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:notepad_app/auth/screen/view/lottie_screen.dart';
 import 'package:notepad_app/dashboard/screen/screen_one.dart';
 import 'package:notepad_app/dashboard/screen/screen_two.dart';
 import 'package:notepad_app/onboarding/screen/splash_screen.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: UserListScreen(),
+      home: LottieScreen(),
     );
   }
 }
