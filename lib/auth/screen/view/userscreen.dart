@@ -5,10 +5,9 @@ import 'package:http/http.dart' as http;
 
 class UserListScreen extends StatelessWidget {
   const UserListScreen({super.key});
-
+//Controller
   Future<List<User>> fetchUsers() async {
-    final data =
-        await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
+    final data = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
     if (data.statusCode == 200) {
       List<dynamic> list = jsonDecode(data.body);
       return list.map((json) => User.fromJson(json)).toList();
@@ -57,6 +56,10 @@ class UserListScreen extends StatelessWidget {
 
                       Text(
                         users[index].username,
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
+                      Text(
+                        users[index].email,
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                     ],
