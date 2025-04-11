@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ScreenTwo extends StatelessWidget {
-   String name= 'ahfgdgfd';
+import '../camera_screen.dart';
 
-   ScreenTwo({
+class ScreenTwo extends StatelessWidget {
+
+
+  ScreenTwo({
     super.key,
-    required this.name,
   });
 
   @override
@@ -18,11 +19,13 @@ class ScreenTwo extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(
-              child: Text(
-            'My Name is:  $name',
-            style: TextStyle(fontSize: 28),
-          ))
+          ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CameraPage(),));
+              },
+              child: Text('Open Camera'))
+
         ],
       ),
     );
